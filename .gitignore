@@ -1,0 +1,10 @@
+*.pyc
+*.egg-info
+venv
+.project
+.pydevproject
+.settings
+*.resources.prefs
+.idea
+*.db
+*.sqlite
