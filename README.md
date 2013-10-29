@@ -15,7 +15,7 @@ More details are available in [this talk](http://www.youtube.com/watch?v=eGrpnt2
 
 Run the following to get started:
 
-    git cone angular-tastypie-example
+    git clone git@github.com:ailling/angular-tastypie-example.git
     cd angular-tastypie-example
     virtualenv venv
     source venv/bin/activate
