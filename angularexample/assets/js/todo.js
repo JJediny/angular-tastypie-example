@@ -20,19 +20,26 @@ app.config(function(RestangularProvider) {
 function TodoController($scope, Restangular){
     $scope.todos = [];
 
-    Restangular.all("todos").getList().then(function(todos){
-        $scope.todos = todos;
-    });
+    $scope.getAllTodos = function(){
+        Restangular.all("todos").getList().then(function(todos){
+            $scope.todos = todos;
+        });
+    }
 
     $scope.getTotalTodos = function(){
         return $scope.todos.length;
     }
 
     $scope.addTodo = function(){
-        $scope.todos.push({
+        var todo = {
             text: $scope.formTodoText,
             done: false
+        };
+
+        Restangular.all('todos').post(todo, 'todos').then(function(result){
+            $scope.getAllTodos();
         });
+
         $scope.formTodoText = '';
     }
 
@@ -51,4 +58,6 @@ function TodoController($scope, Restangular){
             }
         }
     }
+
+    $scope.getAllTodos();
 }
